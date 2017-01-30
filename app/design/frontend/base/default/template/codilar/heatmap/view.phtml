@@ -1,0 +1,8 @@
+<?php if($this->isEnabled() && $this->isAllowedIP()): ?>
+	<script type="text/javascript">
+		var heatmap_retrieve_url = '<?php echo $this->getRetrieveUrl() ?>';
+		var heatmap_max_layers = <?php echo $this->getMaxLayers() ?>;
+		var heatmap_current_uri = '<?php echo $this->getCurrentUri() ?>';
+		window.addEventListener('load',initHeatmapViewer);
+	</script>
+<?php endif; ?>

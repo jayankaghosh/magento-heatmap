@@ -1,0 +1,14 @@
+<layout version="0.1.0">
+	<default>
+	    <reference name="head">
+	    	<block type="codilar_heatmap/track" name="heatmap_track" template="codilar/heatmap/track.phtml" />
+	        <action method="addJs" ifconfig="codilar_heatmap_config/tracker/power"><script>heatmap/heatmap.js</script></action>
+	        
+
+	        <block type="codilar_heatmap/view" name="heatmap_view" template="codilar/heatmap/view.phtml" />
+	        <action method="addJs" ifconfig="codilar_heatmap_config/viewer/power"><script>heatmap/simpleheat.js</script></action>
+	        <action method="addJs" ifconfig="codilar_heatmap_config/viewer/power"><script>heatmap/heatmap_viewer.js</script></action>
+	        
+	    </reference>
+	</default>
+</layout>

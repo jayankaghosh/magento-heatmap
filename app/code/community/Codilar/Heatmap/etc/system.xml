@@ -1,0 +1,152 @@
+<config>
+    <tabs>
+        <codilar_config translate="label" module="codilar_heatmap">
+            <label>Codilar</label>
+            <sort_order>10</sort_order>
+        </codilar_config>
+    </tabs>    
+    <sections>
+        <codilar_heatmap_config translate="label" module="codilar_heatmap">
+            <label>Heatmap</label>
+            <tab>codilar_config</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <groups>
+                <tracker translate="label">
+                    <label>Tracker Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <fields>
+                        <power>
+                            <label>Enable Heatmap Tracker</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </power>
+                        <autostop>
+                            <label>Auto-stop Tracker when viewer is enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </autostop>
+                        <overflow_limit>
+                            <label>Data should be sent after how many activities</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Each click or mouse movement counts as one activity</comment>
+                        </overflow_limit>
+                        <threshold>
+                            <label>Mouse movements should be considered if inactive for</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>in milliseconds</comment>
+                        </threshold>
+                        <cleanup>
+                            <label>Send remaining data onunload with a synchronous AJAX request</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>might cause the illusion that the next page is slow to load</comment>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </cleanup>
+                    </fields>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                
+                </tracker>
+                <viewer translate="label">
+                    <label>Viewer Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <fields>
+                        <power>
+                            <label>Enable Heatmap Viewer</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </power>
+                        <allowed_ips>
+                            <label>Allowed IPs (to view data)</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Multiple IPs should be comma-separated. Leave blank for all IPs</comment>
+                        </allowed_ips>
+                        <set_allowed_ip>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>codilar_heatmap/adminhtml_system_config_form_button</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </set_allowed_ip>
+                        <max_layers>
+                            <label>How many layers until full heat</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>1 means each activity will come as a red dot</comment>
+                        </max_layers>
+                        <filter_from>
+                            <label>Show heatmap data from</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>codilar_heatmap/adminhtml_system_config_date</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>leave blank for beginning</comment>
+                        </filter_from>
+                        <filter_to>
+                            <label>Show heatmap data upto</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>codilar_heatmap/adminhtml_system_config_date</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>leave blank for today</comment>
+                        </filter_to>
+                        <screen_size>
+                            <label>Auto-filter heatmap data based on viewer's screen size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>will increase accuracy</comment>
+                        </screen_size>
+                    </fields>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>                
+                </viewer>
+            </groups>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>                    
+        </codilar_heatmap_config>
+    </sections>        
+</config>

@@ -1,0 +1,25 @@
+<?php if($this->isEnabled() && !$this->autoStop()): ?>
+	<script type="text/javascript">
+			var heatmap_post_url = '<?php echo $this->getPostUrl() ?>';
+			var heatmap_current_uri = '<?php echo $this->getCurrentUri() ?>';
+			var heatmap_overflowLimit = <?php echo $this->getOverflowLimit() ?>;
+			var heatmap_threshold = <?php echo $this->getThreshold() ?>;
+			//window.addEventListener('load',initHeatmap);
+			initHeatmap();
+			<?php if($this->cleanUpEnabled()): ?>
+				window.onunload = function(){
+					new Ajax.Request(heatmap_post_url, {
+						method:'post',
+						asynchronous: false,
+						parameters: {
+							heatmap_current_uri: heatmap_current_uri,
+							heatmap_data: JSON.stringify(heatmapData)
+						},
+						onSuccess: function(response) {
+						},
+						onFailure: function() {}
+					});
+				}
+			<?php endif; ?>
+	</script>
+<?php endif; ?>

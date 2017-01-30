@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Codilar_Heatmap>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Codilar_Heatmap>
+    </modules>
+</config>
